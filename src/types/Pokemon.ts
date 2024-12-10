@@ -1,9 +1,14 @@
 
+import type { Ability, Cries, Type, Stat } from "./PokemonAPI";
+
 export interface Pokemon {
   id: number;
   name: string;
-  front_default: string;
-  cries?: string;
-  types?: string[];
-  abilities?: string[];
+  height?: number;
+  weight?: number;
+  front_default?: string;
+  cries?: Cries;
+  types?: Type[];
+  stats: Stat[];
+  abilities?: Ability[];
 }
