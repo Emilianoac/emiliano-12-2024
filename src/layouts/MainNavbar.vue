@@ -4,7 +4,7 @@ import AppThemeToggle from "@/components/AppThemeToggle.vue"
 </script>
 
 <template>
-  <nav class="navbar px-4 py-2">
+  <nav class="navbar">
     <div class="navbar-container">
       <router-link to="/">
         <h1 class="navbar-brand">
@@ -24,10 +24,12 @@ import AppThemeToggle from "@/components/AppThemeToggle.vue"
   @apply sticky top-0 z-[1000];
   @apply bg-white dark:bg-gray-800;
   @apply shadow-md;
+  @apply py-3;
 
   .navbar-container {
     @apply flex justify-between items-center;
     @apply container mx-auto;
+    @apply px-4;
   }
 
   .navbar-brand {
