@@ -4,7 +4,7 @@ import MainNavbar from "@/layouts/MainNavbar.vue";
 
 <template>
   <MainNavbar/>
-  <main class="container mx-auto px-4">
+  <main class="2xl:container mx-auto px-4">
     <slot />
   </main>
 </template>

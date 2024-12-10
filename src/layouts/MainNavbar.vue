@@ -28,7 +28,7 @@ import AppThemeToggle from "@/components/AppThemeToggle.vue"
 
   .navbar-container {
     @apply flex justify-between items-center;
-    @apply container mx-auto;
+    @apply 2xl:container mx-auto;
     @apply px-4;
   }
 
