@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import AppThemeToggle from "@/components/AppThemeToggle.vue"
+
 </script>
 
 <template>
@@ -11,6 +13,7 @@
       </router-link>
       <div class="navbar-links">
         <router-link to="/team">Mi equipo</router-link>
+        <AppThemeToggle />
       </div>
     </div>
   </nav>
