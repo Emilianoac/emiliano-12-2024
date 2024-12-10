@@ -1,0 +1,54 @@
+<script lang="ts" setup>
+</script>
+
+<template>
+  <nav class="navbar px-4 py-2">
+    <div class="navbar-container">
+      <router-link to="/">
+        <h1 class="navbar-brand">
+          <span>Poke</span>App
+        </h1>
+      </router-link>
+      <div class="navbar-links">
+        <router-link to="/team">Mi equipo</router-link>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<style lang="postcss" scoped>
+.navbar {
+  @apply sticky top-0 z-[1000];
+  @apply bg-white dark:bg-gray-800;
+  @apply shadow-md;
+
+  .navbar-container {
+    @apply flex justify-between items-center;
+    @apply container mx-auto;
+  }
+
+  .navbar-brand {
+    @apply text-xl font-bold;
+
+    span {
+      @apply text-red-500;
+    }
+
+    &:hover {
+      @apply opacity-80;
+    }
+  }
+
+  .navbar-links {
+    @apply flex justify-end items-center gap-3;
+
+    a {
+      @apply text-black dark:text-white;
+
+      &:hover {
+        @apply text-blue-500
+      }
+    }
+  }
+}
+</style>
