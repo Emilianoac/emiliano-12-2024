@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import AppThemeToggle from "@/components/AppThemeToggle.vue"
+import AppThemeToggle from "@/components/AppThemeToggle.vue";
 
 </script>
 
@@ -51,8 +51,12 @@ import AppThemeToggle from "@/components/AppThemeToggle.vue"
       @apply text-black dark:text-white;
 
       &:hover {
-        @apply text-blue-500
+        @apply dark:text-blue-400 text-blue-600;
       }
+    }
+
+    a.router-link-active {
+      @apply dark:text-blue-400 text-blue-600;
     }
   }
 }
