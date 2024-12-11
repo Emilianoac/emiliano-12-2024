@@ -4,21 +4,13 @@ import AppProgressBar from "@/components/AppProgressBar.vue";
 import type { Pokemon } from "@/types/Pokemon";
 import AppSoundbutton from "@/components/AppSoundbutton.vue";
 import IconTrash from "@/components/icons/IconTrash.vue";
+import AppTag from "@/components/AppTag.vue";
 
 const teamStore = useTeamStore();
 
 defineProps<{ 
   member: Pokemon 
 }>();
-
-const statColors: Record<string, string> = {
-  "hp": "bg-red-500",
-  "attack": "bg-yellow-500",
-  "defense": "bg-green-500",
-  "special-attack": "bg-orange-500",
-  "special-defense": "bg-purple-500",
-  "speed": "bg-blue-500",
-};
 
 </script>
 
@@ -40,28 +32,19 @@ const statColors: Record<string, string> = {
       <h2 class="member-card-name">{{ member.name }}</h2>
   
       <div class="member-card-types">
-        <span 
-          class="first-letter:uppercase"
+        <AppTag  
           v-for="type in member.types" 
-          :key="type.slot">
-            {{ type.type.name }}
-        </span>
+          :key="type.slot" 
+          :tag="type.type.name" 
+        />
       </div>
   
-      <div class="member-card-stats">
-        <div 
-          class="member-stat mb-3" 
-          v-for="stat in member.stats" 
-          :key="stat.stat.name">
-            <p class="first-letter:uppercase text-sm font-semibold mb-1">
-              {{ stat.stat.name }}: {{ stat.base_stat }}
-            </p>
-            <AppProgressBar 
-              :progress="stat.base_stat" 
-              :color="statColors[stat.stat.name]"
-            />
-        </div>
-      </div>
+      <AppProgressBar 
+        v-for="stat in member.stats" 
+        :key="stat.stat.name"
+        :progress="stat.base_stat" 
+        :stat-name="stat.stat.name"
+      />
     </router-link>
   </article>
 </template>
@@ -107,12 +90,6 @@ const statColors: Record<string, string> = {
 
   .member-card-types {
     @apply flex justify-center my-4;
-    span {
-      @apply inline-block;
-      @apply bg-gray-200 dark:bg-gray-700;
-      @apply px-2 py-1 rounded-md mr-2;
-      @apply text-xs first-letter:uppercase font-semibold;
-    }
   }
 
   .member-card-actions {
