@@ -3,12 +3,12 @@ import { computed } from "vue";
 import { useTeamStore } from "@/stores/team";
 import IconCheck from "@/components/icons/IconCheck.vue";
 import IconUnchecked from "@/components/icons/IconUnchecked.vue";
-import type { PokemonBasic } from "@/types/PokemonBasic";
+import type { Pokemon } from "@/types/Pokemon";
 
 const teamStore = useTeamStore();
 
 const props = defineProps<{
-  pokemon: PokemonBasic;
+  pokemon: Pokemon;
 }>();
 
 
