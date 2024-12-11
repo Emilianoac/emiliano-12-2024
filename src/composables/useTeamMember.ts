@@ -21,6 +21,10 @@ export function useTeamMember() {
       if (!teamStore.singleTeamMember.pokemon) {
         router.push({ name: "team" });
       }
+
+      const name = teamStore.singleTeamMember.pokemon?.name;
+      name ? document.title = `${name.charAt(0).toUpperCase() + name.slice(1)} - PokeApp` : document.title = "Miembro del equipo - PokeApp";
+
     } catch (error) {
       console.error("Error fetching team member:", error);
       router.push({ name: "team" });
