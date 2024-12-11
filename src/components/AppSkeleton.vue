@@ -7,7 +7,7 @@
 
 <style lang="postcss" scoped>
 .skeleton {
-  @apply bg-gray-200 dark:bg-gray-800;
+  @apply bg-gray-200 dark:bg-gray-700;
   @apply animate-pulse;
   @apply rounded-lg;
 }
