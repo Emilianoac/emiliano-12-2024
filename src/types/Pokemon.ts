@@ -12,3 +12,8 @@ export interface Pokemon {
   stats: Stat[];
   abilities?: Ability[];
 }
+
+export interface Evolution {
+  name: string;
+  sprite: string;
+}
