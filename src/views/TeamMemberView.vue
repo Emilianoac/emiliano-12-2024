@@ -23,6 +23,6 @@ setupRouteWatcher();
 
 <style lang="postcss" scoped>
 .member-profile {
-  @apply py-4 pt-16;
+  @apply py-4 pt-10 md:pt-16;
 }
 </style>
