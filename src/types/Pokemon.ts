@@ -9,7 +9,7 @@ export interface Pokemon {
   front_default?: string;
   cries?: Cries;
   types?: Type[];
-  stats: Stat[];
+  stats?: Stat[];
   abilities?: Ability[];
 }
 
