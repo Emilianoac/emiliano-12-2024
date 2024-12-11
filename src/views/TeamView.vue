@@ -13,9 +13,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="my-10">  
+  <div class="team-view">  
     <template v-if="teamData.length || teamStore.isLoading" >
-      <h1 class="text-3xl font-bold mb-7 text-center">Mi equipo</h1>
+
+      <div class="team-view-header">
+        <h1>Mi equipo</h1>
+        <p v-if="teamData.length">
+          <span>{{ teamData.length }}</span> / {{ teamStore.userTeam.max }} miembros
+        </p>
+      </div>
+      
       <div class="team-grid">
         <template v-if="teamData.length">
           <TeamViewCard 
@@ -40,6 +47,26 @@ onMounted(async () => {
 </template>
 
 <style lang="postcss" scoped>
+
+.team-view {
+  @apply my-10;
+
+  .team-view-header {
+    @apply flex justify-between items-center mb-7;
+
+    h1 {
+      @apply text-xl md:text-3xl font-bold text-center;
+    }
+
+    p {
+      @apply text-sm;
+
+      span {
+        @apply font-bold;
+      }
+    }
+  }
+}
 
 .team-grid {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4;
