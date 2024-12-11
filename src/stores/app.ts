@@ -16,7 +16,6 @@ export const useAppStore = defineStore("app", () => {
     status: false,
     message: "",
   })
-  const isLoading = ref(false);
 
   async function getPokemons(page: number, limit: number, offset: number) {
     if (pokemons.value.length >= pagination.value.total) return;
@@ -40,8 +39,9 @@ export const useAppStore = defineStore("app", () => {
   
       updatePokemons(newPokemonList);
       updateCurrentPage(page === pagination.value.totalPages ? page : page + 1);
-    } catch (error) {
-      console.error("Error fetching pokemons:", error);
+    } catch (err) {
+      error.value.status = true;
+      error.value.message = "Error Obteniendo los Pokemons";
     }
   }
   
