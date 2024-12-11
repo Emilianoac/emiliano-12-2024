@@ -2,7 +2,7 @@
 import { useTeamStore } from "@/stores/team";
 import { computed, onMounted } from "vue";
 import TeamViewCard from "@/components/team-view/TeamViewCard.vue";
-import AppSkeleton from "@/components/AppSkeleton.vue";
+import TeamViewCardSkeleton from "@/components/team-view/TeamViewCardSkeleton.vue";
 
 const teamStore = useTeamStore();
 const teamData = computed(() => teamStore.userTeam.members.detailedData);
@@ -25,18 +25,10 @@ onMounted(async () => {
       
       <div class="team-grid">
         <template v-if="teamData.length">
-          <TeamViewCard 
-            v-for="member in teamData" 
-            :member="member" 
-            :key="member.id" 
-          />
+          <TeamViewCard v-for="member in teamData" :member="member" :key="member.id"/>
         </template>
         <template v-else>
-          <AppSkeleton
-            v-for="index in 6"
-            :key="index"
-            class="w-full h-[400px] md:h-[500px]"
-          />
+          <TeamViewCardSkeleton v-for="index in 6" :key="index"/>
         </template>
       </div>
     </template>

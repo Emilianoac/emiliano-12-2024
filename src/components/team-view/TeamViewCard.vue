@@ -15,7 +15,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="member-card" :key="member.id">
+  <article class="member-card">
     <div class="member-card-header">
       <AppSoundbutton :sound-data="member.cries?.latest"/>
       <button 
@@ -49,7 +49,7 @@ defineProps<{
   </article>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 
 .member-card {
   @apply relative;
@@ -57,7 +57,6 @@ defineProps<{
   @apply transition-transform duration-300 ease-in-out;
 
   .member-card-header {
-    @apply absolute top-0 right-0;
     @apply flex justify-between w-full;
     @apply p-2;
 
