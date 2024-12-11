@@ -22,6 +22,7 @@ async function loadMorePokemons() {
 };
 
 onMounted(async () => {
+  if (appStore.pokemons.length) return;
   await appStore.getPokemons(1,25,0);
 });
 </script>
