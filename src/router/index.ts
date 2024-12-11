@@ -22,6 +22,12 @@ const router = createRouter({
       component: () => import("../views/TeamMemberView.vue"),
     }
   ],
+
+  scrollBehavior() {
+    return new Promise((resolve) => {
+      resolve({ left: 0, top: 0 })
+    })
+  }
 });
 
 router.beforeEach((to, from, next) => {
