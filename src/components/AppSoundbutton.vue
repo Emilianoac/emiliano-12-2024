@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import IconSound from "@/components/icons/IconSound.vue";
 
-defineProps<{
+const props =defineProps<{
   soundData: string | undefined;
 }>();
 
@@ -11,8 +11,20 @@ const sound = ref<HTMLAudioElement | null>(null);
 function playSound() {
   if (!sound.value) return;
   sound.value.volume = 0.4;
+  sound.value.currentTime = 0; 
   sound.value.play();
 }
+
+watch(() => props.soundData, (newSoundData) => {
+  if (sound.value) {
+    sound.value.pause(); 
+    sound.value.currentTime = 0;
+  }
+  
+  if (newSoundData && sound.value) {
+    sound.value.load();
+  }
+});
 </script>
 
 <template>
@@ -42,5 +54,3 @@ function playSound() {
   }
 }
 </style>
-
-
